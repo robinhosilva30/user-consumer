@@ -1,0 +1,29 @@
+services:
+  mongodb:
+    image: mongo:latest
+    hostname: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASS}
+    volumes:
+      - mongo_data:/data/db
+
+  consumer:
+    build: ./consumer
+    container_name: consumer
+    ports:
+      - "3001:3000"
+    environment:
+      RABBITMQ_URL: ${RABBITMQ_EXTERNAL_URL}
+      RABBITMQ_QUEUE_NAME: ${RABBITMQ_QUEUE_NAME}
+      MONGO_URL: mongodb://${MONGO_USER}:${MONGO_PASS}@mongodb:27017/socialProfiles?authSource=admin
+    depends_on:
+      - mongodb
+    volumes:
+      - ./consumer:/app
+      - /app/node_modules
+
+volumes:
+  mongo_data:

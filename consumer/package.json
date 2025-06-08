@@ -1,0 +1,24 @@
+{
+    "name": "user-consumer",
+    "version": "1.0.0",
+    "description": "Serviço consumidor da fila no RabbitMQ e persistência no MongoDB",
+    "main": "src/app.js",
+    "scripts": {
+        "start": "node src/app.js",
+        "dev": "nodemon src/app.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "amqplib": "^0.10.3",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^5.1.0",
+        "mongoose": "^8.4.1",
+        "winston": "^3.13.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.3"
+    }
+}
