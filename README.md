@@ -32,7 +32,7 @@ Certifique-se de ter instalado em sua máquina:
 ### 1. Clonar o repositório
 
 ```bash
-git clone [https://github.com/robinhosilva30/user-consumer.git](https://github.com/robinhosilva30/user-consumer.git)
+git clone https://github.com/robinhosilva30/user-consumer.git
 cd user-consumer
 ```
 
